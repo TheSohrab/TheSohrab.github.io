@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Curriculum Lessons</title>
+  </head>
+  <body>
+    <h1>Curriculum Lessons</h1>
+    <ul id="lesson-list">
+      <h2>01 React Basics & Working With Components</h2>
+      <li>Module Introduction</li>
+      <li>What Are Components_ And Why Is React All About Them</li>
+      <li>Analyzing a Standard React Project</li>
+      <li>Introducing JSX</li>
+      <li>Writing More Complex JSX Code</li>
+      <li>Adding Basic CSS Styling</li>
+      <li>Outputting Dynamic Data & Working with Expressions in JSX</li>
+      <li>Passing Data via _props_</li>
+      <li>Splitting Components Into Multiple Components</li>
+      <li>The Concept of _Composition_ (_children props_)</li>
+      <li>An Alternative Function Syntax</li>
+      <h2>02 React State & Working with Events</h2>
+      <li>Listening to Events & Working with Event Handlers</li>
+      <li>Working with _State_</li>
+      <li>A Closer Look at the _useState_ Hook</li>
+      <li>Adding Form Inputs</li>
+      <li>Listening to User Input</li>
+      <li>Working with Multiple States</li>
+      <li>Using One State Instead (And What's Better)</li>
+      <li>Handling Form Submission</li>
+      <li>Adding Two-Way Binding</li>
+      <li>Lifting The State Up</li>
+      <li>
+        Controlled vs Uncontrolled Components & Stateless vs Stateful Components
+      </li>
+      <h2>03 Rendering Lists & Conditional Content</h2>
+      <li>Rendering Lists of Data</li>
+      <li>Using Stateful Lists</li>
+      <li>Understanding _Keys_</li>
+      <li>Outputting Conditional Content</li>
+      <li>Adding Conditional Return Statements</li>
+      <li>Adding Dynamic Styles</li>
+      <h2>04 Styling React Components</h2>
+      <li>Setting CSS Classes Dynamically</li>
+      <li>Styled Components & Dynamic Props</li>
+      <li>Styled Components & Media Queries</li>
+      <li>Dynamic Styles with CSS Modules</li>
+    </ul>
+
+    <!-- React JS -->
+    <div id="root"></div>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://fb.me/react-0.14.6.js"></script>
+    <script src="https://fb.me/react-dom-0.14.6.js"></script>
+
+    <!-- Load our React component. -->
+    <script src="app.js"></script>
+
+    <script type="text/babel">
+      function LessonList() {
+        const [lessons, setLessons] = React.useState([
+          'Headline 1',
+          'Lesson 1',
+          'Headline 2',
+          'Lesson 2',
+          'Headline 3',
+          'Lesson 3',
+          'Headline 4',
+          'Lesson 4',
+          'Headline 5',
+          'Lesson 5'
+        ]);
+
+        const [newLesson, setNewLesson] = React.useState('');
+
+        function handleAddLesson() {
+          const newLessons = [...lessons];
+          newLessons.push(newLesson);
+          setLessons(newLessons);
+          setNewLesson('');
+        }
+
+        return (
+          <>
+            <h2>Add a new lesson:</h2>
+            <input
+              type="text"
+              value={newLesson}
+              onChange={e => setNewLesson(e.target.value)}
+            />
+            <button onClick={handleAddLesson}>Add Lesson</button>
+
+            <h2>Current Lessons:</h2>
+            {lessons.map((lesson, index) => (
+              lesson.startsWith('Headline') ? (
+                <>
+                  {index > 0 && (
+                    </ul>
+                  )}
+                  <h2 key={index}>{lesson}</h2>
+                  <ul key={index + '-list'}>
+                </>
+              ) : (
+                <li key={index}>{lesson}</li>
+              )
+            ))}
+            </ul>
+          </>
+        );
+      }
+
+      ReactDOM.render(<LessonList />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
