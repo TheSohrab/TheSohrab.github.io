@@ -6,7 +6,6 @@
   </head>
   <body>
     <h1>Curriculum Lessons</h1>
-
     <ul id="lesson-list">
       <h2>01 React Basics & Working With Components</h2>
       <li>Module Introduction</li>
@@ -46,73 +45,36 @@
       <li>Styled Components & Dynamic Props</li>
       <li>Styled Components & Media Queries</li>
       <li>Dynamic Styles with CSS Modules</li>
+      <h2>05 Debugging React Apps</h2>
+      <li>Working with Breakpoints</li>
+      <li>Using the React DevTools</li>
+      <h2>06 Practice</h2>
+      <li>Adding a _User_ Component</li>
+      <li>Adding a re-usable _Card_ Component</li>
+      <li>Managing the User Input State</li>
+      <li>Adding Validation & Resetting Logic</li>
+      <li>Adding a Users List Component</li>
+      <li>Managing a List Of Users via State</li>
+      <li>Adding The _ErrorModal_ Component</li>
+      <h2>07 Working with Fragments, Portals & _Refs_</h2>
+      <li>Creating a Wrapper Component</li>
+      <li>React Fragments</li>
+      <li>Working with Portals</li>
+      <li>Working with _ref_s</li>
+      <li>Controlled vs Uncontrolled Components</li>
+      <h2>
+        08 Advanced_ Handling Side Effects, Using Reducers & Using the Context
+        API
+      </h2>
+      <li>Using the useEffect() Hook.en_US</li>
+      <li>useEffect & Dependencies.en_US</li>
+      <li>Using the useEffect Cleanup Function.en_US</li>
+      <li>Using the useReducer() Hook.en_US</li>
+      <li>useReducer vs useState for State Management.en_US</li>
+      <li>Using the React Context API</li>
+      <li>Making Context Dynamic</li>
+      <h2>09 Project_ Building a Food Order App</h2>
+      <li>In progress ...</li>
     </ul>
-
-    <!-- React JS -->
-    <div id="root"></div>
-
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://fb.me/react-0.14.6.js"></script>
-    <script src="https://fb.me/react-dom-0.14.6.js"></script>
-
-    <!-- Load our React component. -->
-    <script src="app.js"></script>
-
-    <script type="text/babel">
-      function LessonList() {
-        const [lessons, setLessons] = React.useState([
-          'Headline 1',
-          'Lesson 1',
-          'Headline 2',
-          'Lesson 2',
-          'Headline 3',
-          'Lesson 3',
-          'Headline 4',
-          'Lesson 4',
-          'Headline 5',
-          'Lesson 5'
-        ]);
-
-        const [newLesson, setNewLesson] = React.useState('');
-
-        function handleAddLesson() {
-          const newLessons = [...lessons];
-          newLessons.push(newLesson);
-          setLessons(newLessons);
-          setNewLesson('');
-        }
-
-        return (
-          <>
-            <h2>Add a new lesson:</h2>
-            <input
-              type="text"
-              value={newLesson}
-              onChange={e => setNewLesson(e.target.value)}
-            />
-            <button onClick={handleAddLesson}>Add Lesson</button>
-
-            <h2>Current Lessons:</h2>
-            {lessons.map((lesson, index) => (
-              lesson.startsWith('Headline') ? (
-                <>
-                  {index > 0 && (
-                    </ul>
-                  )}
-                  <h2 key={index}>{lesson}</h2>
-                  <ul key={index + '-list'}>
-                </>
-              ) : (
-                <li key={index}>{lesson}</li>
-              )
-            ))}
-            </ul>
-          </>
-        );
-      }
-
-      ReactDOM.render(<LessonList />, document.getElementById('root'));
-    </script>
   </body>
 </html>
